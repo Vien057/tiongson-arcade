@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tiongson Arcade — Tuna Dining Experience</title>
+<meta name="description" content="Tiongson Arcade Tuna Dining Experience — Taste the Pride of GenSan.">
+<style>
+:root {
+  --navy:#06294a; --navy2:#0b3a63; --cream:#f7f2e7; --orange:#ef9b20;
+  --ink:#17324d; --muted:#647384; --white:#fff;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:var(--cream);line-height:1.55}
+a{color:inherit;text-decoration:none}
+.nav{position:sticky;top:0;z-index:10;background:rgba(6,41,74,.96);backdrop-filter:blur(12px);color:#fff;border-bottom:1px solid rgba(255,255,255,.12)}
+.nav-inner{max-width:1180px;margin:auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{font-family:Georgia,serif;font-weight:700;font-size:1.25rem;letter-spacing:.04em}
+.brand span{color:var(--orange)}
+.navlinks{display:flex;gap:20px;font-size:.92rem}
+.navlinks a{opacity:.9}
+.navlinks a:hover{color:#ffd78b}
+.hero{position:relative;min-height:76vh;display:grid;align-items:end;overflow:hidden;background:#0b2d49}
+.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(3,22,38,.15),rgba(3,22,38,.72))}
+.hero-content{position:relative;z-index:1;max-width:1180px;width:100%;margin:auto;padding:90px 24px 70px;color:#fff}
+.eyebrow{text-transform:uppercase;letter-spacing:.2em;font-size:.78rem;font-weight:700;color:#ffd27d}
+h1{font-family:Georgia,serif;font-size:clamp(3rem,8vw,6.7rem);line-height:.95;margin:12px 0 18px;max-width:850px}
+.script{font-family:"Brush Script MT","Segoe Script",cursive;font-size:clamp(1.8rem,4vw,3.2rem);color:#ffd27d}
+.hero p{max-width:650px;font-size:1.08rem;color:#eef5fa}
+.btn{display:inline-block;margin-top:20px;padding:13px 22px;border-radius:999px;background:var(--orange);color:#14263a;font-weight:800}
+section{padding:82px 24px}
+.container{max-width:1180px;margin:auto}
+.section-kicker{color:#b46c00;font-weight:800;text-transform:uppercase;letter-spacing:.14em;font-size:.76rem}
+h2{font-family:Georgia,serif;font-size:clamp(2rem,4vw,3.5rem);margin:8px 0 16px;color:var(--navy)}
+.lead{max-width:750px;color:#586b7c;font-size:1.05rem}
+.promise{background:var(--navy);color:#fff}
+.promise h2{color:#fff}
+.promise-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:35px}
+.card{background:#fff;border:1px solid #e4e7ea;border-radius:20px;padding:26px;box-shadow:0 8px 30px rgba(11,36,57,.06)}
+.promise .card{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.12);box-shadow:none}
+.card h3{margin:0 0 8px;font-family:Georgia,serif;color:var(--navy)}
+.promise .card h3{color:#ffd27d}
+.story{display:grid;grid-template-columns:1.1fr .9fr;gap:45px;align-items:center}
+.story img{width:100%;border-radius:24px;display:block;box-shadow:0 18px 45px rgba(0,0,0,.13)}
+.dishes{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:35px}
+.dish{overflow:hidden;border-radius:20px;background:#fff;border:1px solid #e6e7e8}
+.dish img{width:100%;height:210px;object-fit:cover;display:block}
+.dish-body{padding:22px}
+.dish h3{font-family:Georgia,serif;margin:0 0 7px;color:var(--navy);font-size:1.45rem}
+.menu-section{background:#fff}
+.menu-wrap{display:grid;grid-template-columns:1fr 1fr;gap:35px;align-items:center}
+.menu-wrap img{width:100%;border-radius:20px;box-shadow:0 14px 40px rgba(0,0,0,.12)}
+.price-grid{display:grid;gap:14px;margin-top:25px}
+.price{display:flex;justify-content:space-between;gap:20px;padding:18px;border-radius:16px;background:var(--cream);border-left:5px solid var(--orange)}
+.price strong{color:var(--navy)}
+.price b{white-space:nowrap}
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:30px}
+.gallery img{width:100%;height:220px;object-fit:cover;border-radius:18px}
+.care{background:#eef3f6}
+.care-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px;margin-top:30px}
+.care-item{padding:22px;background:#fff;border-radius:18px}
+.care-item b{display:block;color:var(--navy);margin-bottom:7px}
+.cta{text-align:center;background:linear-gradient(135deg,var(--navy),#0d527f);color:#fff}
+.cta h2{color:#fff}
+.cta p{max-width:650px;margin:0 auto;color:#e5eff6}
+.footer{background:#031c31;color:#cbd8e3;padding:30px 24px;text-align:center}
+.small{font-size:.86rem;color:#91a3b2}
+@media(max-width:850px){
+ .navlinks{display:none} .promise-grid,.dishes,.care-grid,.story,.menu-wrap{grid-template-columns:1fr}
+ .gallery{grid-template-columns:1fr 1fr} .hero{min-height:70vh}
+}
+@media(max-width:520px){.gallery{grid-template-columns:1fr} section{padding:60px 18px} .hero-content{padding:70px 18px 55px}}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="#">TIONGSON <span>ARCADE</span></a>
+    <div class="navlinks">
+      <a href="#experience">Experience</a><a href="#menu">Menu</a><a href="#story">Our Story</a><a href="#care">Guest Care</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <img src="wide_cinematic_promotional_poster_thumbnail_style.png" alt="Tiongson Arcade waterfront at sunset">
+  <div class="hero-content">
+    <div class="eyebrow">Waterfront Dining • Fresh Local Catch • Sunset Views</div>
+    <h1>Tiongson Arcade</h1>
+    <div class="script">Taste the Pride of GenSan</div>
+    <p>Welcome to the Tiongson Arcade Tuna Dining Experience — where fresh local seafood, genuine hospitality, and a sunset by the water come together.</p>
+    <a class="btn" href="#menu">Explore the Menu</a>
+  </div>
+</header>
+
+<section id="experience">
+  <div class="container">
+    <div class="section-kicker">The Experience</div>
+    <h2>More than a place to eat.</h2>
+    <p class="lead">Tiongson Arcade is presented as a waterfront gathering place where the day's catch arrives fresh at dawn and every meal comes with a view. Our promise is simple: fresh, honestly sourced food, transparent pricing, and genuine hospitality.</p>
+    <div class="promise-grid">
+      <div class="card"><h3>Fresh</h3><p>Fresh local catch and seafood prepared to highlight natural flavor.</p></div>
+      <div class="card"><h3>Honest</h3><p>Clear pricing and clearly stated inclusions — no hidden fees or surprises.</p></div>
+      <div class="card"><h3>Proudly GenSan</h3><p>A welcoming dining experience rooted in local food, fishermen, families, and community.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="story">
+  <div class="container story">
+    <div>
+      <div class="section-kicker">Our Story</div>
+      <h2>Fresh catch. Local stories. A shared table.</h2>
+      <p>The food featured in the tour is not presented as food created only for visitors. Grilled tuna, kinilaw, and sinigang connect the dining experience to fishermen, families, recipes shared across generations, and GenSan's relationship with the sea.</p>
+      <p>As the sun sets over the waterfront, the setting becomes part of the experience — a place to gather, celebrate, and simply be together.</p>
+    </div>
+    <img src="a_wide_cinematic_high_resolution_sunset_waterfro.png" alt="Tiongson Arcade waterfront sunset">
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-kicker">Signature Dishes</div>
+    <h2>Our Tuna Favorites</h2>
+    <div class="dishes">
+      <article class="dish"><div class="dish-body"><h3>Grilled Tuna</h3><p>Fresh-caught tuna, charcoal-grilled to bring out its natural flavor. Simple, pure, unmistakably fresh.</p></div></article>
+      <article class="dish"><div class="dish-body"><h3>Kinilaw</h3><p>Fresh tuna with calamansi, ginger, onions, chili, and coconut milk.</p></div></article>
+      <article class="dish"><div class="dish-body"><h3>Tuna Sinigang</h3><p>Tuna in a comforting, slow-simmered tamarind broth — the taste of home.</p></div></article>
+    </div>
+  </div>
+</section>
+
+<section id="menu" class="menu-section">
+  <div class="container menu-wrap">
+    <div>
+      <div class="section-kicker">Dining Experiences</div>
+      <h2>Clear pricing. No surprises.</h2>
+      <p class="lead">Every package shows exactly what is included, keeping the experience transparent from the first welcome to the final sunset.</p>
+      <div class="price-grid">
+        <div class="price"><strong>Budget Meal</strong><b>₱150–₱300 / person</b></div>
+        <div class="price"><strong>Signature Experience</strong><b>₱300–₱500 / person</b></div>
+        <div class="price"><strong>Premium Waterfront Set</strong><b>₱450–₱650 / person</b></div>
+      </div>
+    </div>
+    <img src="a_wide_rectangular_restaurant_menu_poster_design.png" alt="Tiongson Arcade detailed menu">
+  </div>
+</section>
+
+<section id="care" class="care">
+  <div class="container">
+    <div class="section-kicker">Guest Care</div>
+    <h2>Your comfort and respect matter.</h2>
+    <div class="care-grid">
+      <div class="care-item"><b>Comfort</b>Covered seating helps guests stay comfortable in changing weather.</div>
+      <div class="care-item"><b>Respectful Photos</b>Ask before photographing people or vendors.</div>
+      <div class="care-item"><b>Shared Space</b>Keep pathways clear and voices pleasant.</div>
+      <div class="care-item"><b>Food Questions</b>Ask about ingredients and preferences — we're happy to help.</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-kicker">Waterfront Views</div>
+    <h2>Come share our sunset.</h2>
+    <p class="lead">A visual gallery for the virtual mock tour.</p>
+    <div class="gallery">
+      <img src="wide_cinematic_exterior_shot_of_a_waterfront_rest.png" alt="Tiongson Arcade visual"><img src="a_wide_cinematic_photorealistic_view_of_an_upsca.png" alt="Tiongson Arcade visual"><img src="a_wide_high_resolution_cinematic_view_of_a_moder.png" alt="Tiongson Arcade visual"><img src="wide_cinematic_photorealistic_scene_of_a_seafood.png" alt="Tiongson Arcade visual">
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="container">
+    <h2>Reserve your table. Bring your appetite.</h2>
+    <p>From all of us at Tiongson Arcade — thank you, and see you soon.</p>
+    <a class="btn" href="#top">Taste the Pride of GenSan</a>
+  </div>
+</section>
+
+<footer class="footer">
+  <strong>TIONGSON ARCADE</strong>
+  <div class="small">Waterfront Dining • Fresh Local Catch • Sunset Views</div>
+  <div class="small">Mock website concept for THC 212 Practice Application — Group 1, Dining Out.</div>
+</footer>
+</body>
+</html>
